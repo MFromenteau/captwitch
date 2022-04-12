@@ -1,0 +1,3 @@
+<div *ngFor="let element of streams">
+  <app-stream-displayer [stream]="element" (removeRequest)="remove($event)"></app-stream-displayer>
+</div>
