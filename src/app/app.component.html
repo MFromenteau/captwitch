@@ -1,11 +1,21 @@
-Bonjour le stream
+<h1>CapTwitch</h1>
 <app-login-form></app-login-form>
-<app-streams-displayer></app-streams-displayer>
+<div class="content-container">
+  <app-streams-displayer></app-streams-displayer>
 
-<app-stream-event-form></app-stream-event-form>
+  <div class="base-block stream-form">
+    <app-stream-event-form></app-stream-event-form>
+  </div>
 
-<app-stream-requests-displayer></app-stream-requests-displayer>
+  <div class="base-block stream-requests">
+    <app-stream-requests-displayer></app-stream-requests-displayer>
+  </div>
 
-<app-stream-request-form></app-stream-request-form>
+  <div class="base-block stream-form">
+    <app-stream-request-form></app-stream-request-form>
+  </div>
 
-<app-login-form [isLoginForm]="false"></app-login-form>
+  <div class="base-block stream-form">
+    <app-login-form [isLoginForm]="false"></app-login-form>
+  </div>
+</div>

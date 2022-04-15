@@ -1,28 +1,39 @@
 .stream-container {
-  @apply w-52 shadow-lg rounded-md;
+  @apply w-64 h-full shadow-md hover:shadow-lg transition-all ease-linear duration-150 rounded-lg overflow-hidden;
 
   .stream-img {
-    @apply h-36;
     img {
-      @apply w-auto h-36;
+      @apply h-36 object-fill hover:scale-105 transition-transform ease-in-out duration-300;
     }
   }
 
+  .stream-body {
+    @apply px-4 py-4 h-52;
+  }
+
   .stream-title {
-    @apply text-lg font-bold w-full;
+    @apply text-xl mb-2 font-bold;
   }
 
   .stream-desc {
-    @apply p-2;
+    @apply pb-2 text-ellipsis;
+    p {
+      @apply text-ellipsis;
+    }
   }
 
   .stream-footer {
+    @apply p-4;
     button {
       @apply w-full;
     }
   }
+
+  .stream-info {
+    @apply p-4 border-t border-b text-xs text-gray-700;
+    .stream-info-row {
+      @apply flex items-center mb-1;
+    }
+  }
 }
 
-.stream-body {
-  @apply p-2;
-}

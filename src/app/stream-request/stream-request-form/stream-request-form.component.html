@@ -1,15 +1,18 @@
-<div>
-  <label>
-    Nom
-  </label>
-  <input required type="text" [(ngModel)]="newStreamRequest.name" />
-</div>
+<h2>Nouvelle demande</h2>
+<div class="custom-form">
+  <div class="form-line">
+    <label>
+      Nom
+    </label>
+    <input required type="text" [(ngModel)]="newStreamRequest.name" />
+  </div>
 
-<div>
-  <label>
-    Description
-  </label>
-  <textarea required type="text" [(ngModel)]="newStreamRequest.description"></textarea>
-</div>
+  <div class="form-line">
+    <label>
+      Description
+    </label>
+    <textarea required type="text" [(ngModel)]="newStreamRequest.description"></textarea>
+  </div>
 
-<button (click)="save()">Enregister</button>
+  <button class="btn-primary" (click)="save()">Enregistrer</button>
+</div>

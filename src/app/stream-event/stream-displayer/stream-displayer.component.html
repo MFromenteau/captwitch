@@ -7,10 +7,18 @@
       {{ stream.name }}
     </div>
     <div class="stream-desc">
-      {{ stream.description }}
+        {{ stream.description }}
     </div>
-    <div class="stream-footer">
-      <button class="btn-warning">Supprimer</button>
-    </div>
+  </div>
+  <div class="stream-info">
+    <span class="stream-info-row">
+      {{ stream.date | date:'medium' }}
+    </span>
+    <span class="stream-info-row">
+      {{ stream.tecs }}
+    </span>
+  </div>
+  <div class="stream-footer" *ngIf="accountService.isLoggedIn">
+    <button class="btn-warning">Supprimer</button>
   </div>
 </div>
