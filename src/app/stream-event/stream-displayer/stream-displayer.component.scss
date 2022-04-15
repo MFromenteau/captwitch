@@ -1,0 +1,28 @@
+.stream-container {
+  @apply w-52 shadow-lg rounded-md;
+
+  .stream-img {
+    @apply h-36;
+    img {
+      @apply w-auto h-36;
+    }
+  }
+
+  .stream-title {
+    @apply text-lg font-bold w-full;
+  }
+
+  .stream-desc {
+    @apply p-2;
+  }
+
+  .stream-footer {
+    button {
+      @apply w-full;
+    }
+  }
+}
+
+.stream-body {
+  @apply p-2;
+}

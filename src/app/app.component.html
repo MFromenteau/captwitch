@@ -1,43 +1,11 @@
 Bonjour le stream
+<app-login-form></app-login-form>
+<app-streams-displayer></app-streams-displayer>
 
-<app-streams-displayer [reloadRequest]="streamAdded"></app-streams-displayer>
+<app-stream-event-form></app-stream-event-form>
 
-<p>nom du prochain stream : {{ newStream.name }}</p>
+<app-stream-requests-displayer></app-stream-requests-displayer>
 
-<div>
-  <label>
-    Nom
-  </label>
-  <input required type="text" [(ngModel)]="newStream.name" />
-</div>
+<app-stream-request-form></app-stream-request-form>
 
-<div>
-  <label>
-    Description
-  </label>
-  <textarea required type="text" [(ngModel)]="newStream.description"></textarea>
-</div>
-
-<div>
-  <label>
-    Date
-  </label>
-  <input required type="datetime-local" [(ngModel)]="newStream.date" />
-</div>
-
-<div>
-  <label>
-    Url image
-  </label>
-  <input required type="text" [(ngModel)]="newStream.background" />
-</div>
-
-
-<div>
-  <label>
-    Technologies
-  </label>
-  <input required type="text" [(ngModel)]="newStream.tecs" />
-</div>
-
-<button (click)="save()">Enregister</button>
+<app-login-form [isLoginForm]="false"></app-login-form>

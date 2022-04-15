@@ -1,6 +1,5 @@
-import { Component, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { IStreamEvent } from 'src/core/classes/istream-event';
+import { Component } from '@angular/core';
+import { AccountService } from './core/services/account/account.service';
 
 @Component({
   selector: 'app-root',
@@ -9,23 +8,9 @@ import { IStreamEvent } from 'src/core/classes/istream-event';
 })
 export class AppComponent {
   title = 'capTwitch.front';
-  newStream: IStreamEvent;
-  streamEventUrl = 'http://localhost:5009/StreamEvent';
 
-  streamAdded: EventEmitter<IStreamEvent> = new EventEmitter();
-
-  constructor(private httpClient: HttpClient) {
-    this.newStream = <IStreamEvent>{};
+  constructor(private accountService: AccountService) {
+    accountService.verifyLogin();
   }
 
-  save() {
-    this.httpClient.post<IStreamEvent>(this.streamEventUrl, this.newStream).subscribe(
-      result => {
-        this.streamAdded.emit(result);
-      },
-      error => {
-        alert(error);
-      }
-    );
-  }
 }

@@ -1,0 +1,41 @@
+<p>nom du prochain stream : {{ newStream.name }}</p>
+<div class="custom-form">
+  <div class="form-line">
+    <label>
+      Nom
+    </label>
+    <input required type="text" [(ngModel)]="newStream.name" />
+  </div>
+
+  <div class="form-line">
+    <label>
+      Description
+    </label>
+    <textarea required type="text" [(ngModel)]="newStream.description"></textarea>
+  </div>
+
+  <div class="form-line">
+    <label>
+      Date
+    </label>
+    <input required type="datetime-local" [(ngModel)]="newStream.date" />
+  </div>
+
+  <div class="form-line">
+    <label>
+      Url image
+    </label>
+    <input required type="text" [(ngModel)]="newStream.background" />
+  </div>
+
+
+  <div class="form-line">
+    <label>
+      Technologies
+    </label>
+    <input required type="text" [(ngModel)]="newStream.tecs" />
+  </div>
+
+  <button class="btn-primary" (click)="save()">Enregister</button>
+
+</div>

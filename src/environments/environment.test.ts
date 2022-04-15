@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://captwitch.api.capcod.com'
+  apiUrl: 'https://captwitch.api.test.capcod.com'
 };

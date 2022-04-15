@@ -1,0 +1,15 @@
+<div>
+  <label>
+    Nom
+  </label>
+  <input required type="text" [(ngModel)]="newStreamRequest.name" />
+</div>
+
+<div>
+  <label>
+    Description
+  </label>
+  <textarea required type="text" [(ngModel)]="newStreamRequest.description"></textarea>
+</div>
+
+<button (click)="save()">Enregister</button>

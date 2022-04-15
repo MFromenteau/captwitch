@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { StreamEventService } from 'src/app/core/services/stream-event/stream-event.service';
 import { IStreamEvent } from 'src/core/classes/istream-event';
 
 @Component({
@@ -8,16 +8,14 @@ import { IStreamEvent } from 'src/core/classes/istream-event';
   styleUrls: ['./streams-displayer.component.scss']
 })
 export class StreamsDisplayerComponent implements OnInit {
-  @Input() reloadRequest: EventEmitter<any> = new EventEmitter();
   streams: IStreamEvent[];
-  streamEventUrl = 'http://localhost:5009/StreamEvent/';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private streamEventService: StreamEventService) {
     this.loadStreams();
   }
 
   ngOnInit(): void {
-    this.reloadRequest.subscribe(success => {
+    this.streamEventService.streamAdded.subscribe(success => {
       console.log('reload request', success);
       this.streams.push(success);
       this.loadStreams();
@@ -25,7 +23,7 @@ export class StreamsDisplayerComponent implements OnInit {
   }
 
   loadStreams() {
-    this.httpClient.get<IStreamEvent[]>(this.streamEventUrl).subscribe(
+    this.streamEventService.getAll().subscribe(
       result => {
         this.streams = result;
       }
@@ -33,7 +31,7 @@ export class StreamsDisplayerComponent implements OnInit {
   }
 
   remove(id: number) {
-    this.httpClient.delete(this.streamEventUrl + id).subscribe(success => {
+    this.streamEventService.remove(id).subscribe(success => {
       this.loadStreams();
     });
   }
