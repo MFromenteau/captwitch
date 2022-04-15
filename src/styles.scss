@@ -20,6 +20,9 @@ button {
 
 .btn-primary {
   @apply bg-blue-400 hover:bg-blue-600 text-white;
+  &-outline{
+    @apply bg-white border border-blue-400 hover:bg-blue-400 hover:text-white;
+  }
 }
 
 input, textarea {

@@ -7,10 +7,12 @@ import { CustomHttpInterceptor } from './core/interceptors/custom-http-intercept
 import { LoginModule } from './login/login.module';
 import { StreamEventModule } from './stream-event/stream-event.module';
 import { StreamRequestModule } from './stream-request/stream-request.module';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
