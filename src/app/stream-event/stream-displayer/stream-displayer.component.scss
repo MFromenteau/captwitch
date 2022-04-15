@@ -14,7 +14,7 @@
 
 
   .stream-desc {
-    @apply pb-2 text-ellipsis;
+    @apply pb-2 text-ellipsis text-gray-500;
     p {
       @apply text-ellipsis;
     }
