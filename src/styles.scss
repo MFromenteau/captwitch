@@ -43,6 +43,10 @@ input, textarea {
   }
 }
 
+.comment {
+  @apply text-gray-500 italic;
+}
+
 .custom-form {
   @apply p-2;
 }
