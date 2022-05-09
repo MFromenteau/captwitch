@@ -8,8 +8,9 @@ export class CustomHttpService extends BaseCustomHttpService {
     super(httpClient, endpoint);
   }
 
-  public getAll(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.apiUrl);
+  public getAll(filters: any = null): Observable<any[]> {
+    const params = new URLSearchParams(filters).toString();
+    return this.httpClient.get<any[]>(this.apiUrl +'?'+ params);
   }
 
   public remove(id: number) {
@@ -18,5 +19,9 @@ export class CustomHttpService extends BaseCustomHttpService {
 
   public add(newStream: any): Observable<any> {
     return this.httpClient.post<any>(this.apiUrl, newStream);
+  }
+
+  public patch(id: any, patch: any) {
+    return this.httpClient.patch(this.apiUrl + id, patch);
   }
 }

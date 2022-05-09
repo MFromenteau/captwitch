@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AccountService } from 'src/app/core/services/account/account.service';
+import { StreamEventService } from 'src/app/core/services/stream-event/stream-event.service';
 import { IStreamEvent } from 'src/core/classes/istream-event';
 
 @Component({
