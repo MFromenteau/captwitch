@@ -1,11 +1,17 @@
 <ng-container *ngIf="!service.isLoggedIn; else logoutBlock">
   <h2>{{ isLoginForm ? 'Connexion' : 'Inscription' }}</h2>
-  <label>Pseudo</label>
-  <input type="text" [(ngModel)]="loginModel.pseudo" />
+  <div class="custom-form">
 
-  <label>Mot de passe</label>
-  <input type="password" [(ngModel)]="loginModel.password" />
-  <button (click)="buttonAction()">{{ isLoginForm ? 'Se connecter' : 'S\'inscrire' }}</button>
+    <div class="form-line">
+      <label>Pseudo</label>
+      <input type="text" [(ngModel)]="loginModel.pseudo" />
+    </div>
+    <div class="form-line">
+      <label>Mot de passe</label>
+      <input type="password" [(ngModel)]="loginModel.password" />
+    </div>
+    <button class="btn-primary" (click)="buttonAction()">{{ isLoginForm ? 'Se connecter' : 'S\'inscrire' }}</button>
+  </div>
 </ng-container>
 <ng-template #logoutBlock>
   <button *ngIf="isLoginForm" (click)="logout()">Déconnexion</button>

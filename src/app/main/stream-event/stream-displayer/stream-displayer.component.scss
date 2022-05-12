@@ -1,0 +1,40 @@
+.stream-container {
+  @apply w-64 border border-gray-50 h-full shadow-md bg-white hover:shadow-lg hover:scale-105 transition-all ease-linear duration-150 rounded-lg overflow-hidden;
+
+  .stream-img {
+    @apply p-4;
+    img {
+      @apply h-36 rounded-lg object-fill;
+    }
+  }
+
+  .stream-body {
+    @apply px-4 pb-4 h-52;
+  }
+
+
+  .stream-desc {
+    @apply pb-2 text-ellipsis text-gray-500;
+    p {
+      @apply text-ellipsis;
+    }
+  }
+
+  .stream-footer {
+    @apply p-4 border-t;
+    button {
+      @apply w-full;
+    }
+  }
+
+  .stream-info {
+    @apply p-4 border-t text-xs text-gray-700;
+    .stream-info-row {
+      @apply flex items-center mb-1;
+    }
+  }
+}
+
+.icon {
+  @apply mr-2;
+}

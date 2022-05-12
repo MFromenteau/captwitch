@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StreamEventService } from 'src/app/core/services/stream-event/stream-event.service';
 import { IStreamEvent } from 'src/core/classes/istream-event';
 
@@ -16,7 +16,6 @@ export class StreamsDisplayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.streamEventService.streamAdded.subscribe(success => {
-      console.log('reload request', success);
       this.streams.push(success);
       this.loadStreams();
     });

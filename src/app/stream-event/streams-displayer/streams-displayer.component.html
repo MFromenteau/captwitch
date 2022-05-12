@@ -1,6 +1,0 @@
-<h2>Planning de stream</h2>
-<div class="grid md:grid-cols-4 sm:grid-cols-2 gap-4 p-4">
-  <ng-container *ngFor="let element of streams">
-    <app-stream-displayer [stream]="element" (removeRequest)="remove($event)"></app-stream-displayer>
-  </ng-container>
-</div>

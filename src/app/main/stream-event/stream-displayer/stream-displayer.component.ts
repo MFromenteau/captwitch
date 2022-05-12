@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AccountService } from 'src/app/core/services/account/account.service';
+import { StreamEventService } from 'src/app/core/services/stream-event/stream-event.service';
 import { IStreamEvent } from 'src/core/classes/istream-event';
 
 @Component({
@@ -9,7 +11,7 @@ import { IStreamEvent } from 'src/core/classes/istream-event';
 export class StreamDisplayerComponent implements OnInit {
   @Input() stream: IStreamEvent;
   @Output() removeRequest: EventEmitter<number> = new EventEmitter();
-  constructor() { }
+  constructor(public accountService: AccountService) { }
 
   ngOnInit(): void {
   }

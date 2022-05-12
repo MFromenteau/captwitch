@@ -2,17 +2,27 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+body {
+  @apply bg-slate-50;
+}
+
+h1 {
+  @apply text-2xl font-bold;
+}
 
 h2 {
-  @apply text-xl;
+  @apply text-xl font-bold;
 }
 
 button {
-  @apply rounded-md bg-gray-300 px-4 py-2 hover:bg-gray-500 hover:text-white ease-in duration-300;
+  @apply rounded-md border border-gray-300 bg-white px-4 py-2 hover:bg-gray-50 ease-in duration-300;
 }
 
 .btn-primary {
   @apply bg-blue-400 hover:bg-blue-600 text-white;
+  &-outline{
+    @apply bg-white border border-blue-400 hover:bg-blue-400 hover:text-white;
+  }
 }
 
 input, textarea {
@@ -33,6 +43,22 @@ input, textarea {
   }
 }
 
+.comment {
+  @apply text-gray-500 italic;
+}
+
 .custom-form {
   @apply p-2;
+}
+
+.content-container {
+  @apply xl:px-40 2xl:px-72 md:px-12 lg:px-20 ;
+}
+
+.stream-title {
+  @apply text-xl font-semibold;
+}
+
+.icon {
+  @apply h-4 w-4;
 }

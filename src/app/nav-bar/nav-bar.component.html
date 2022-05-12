@@ -1,0 +1,17 @@
+<div class="nav-bar">
+  <div class="title">
+    <a [routerLink]="'/main'">
+      CapTwitch
+    </a>
+  </div>
+  <div class="nav-links">
+    <a class="nav-link" [href]="twitchLink" target="_blank">Twitch</a>
+    <a class="nav-link" [href]="ytLink" target="_blank">Youtube</a>
+    <a *ngIf="userGuard.isUserConnected()" class="nav-link" [routerLink]="'/management'">Gestion</a>
+  </div>
+  <div class="action-btns">
+    <button class="btn-primary-outline" *ngIf="!userGuard.isUserConnected()">
+      Connexion
+    </button>
+  </div>
+</div>
