@@ -12,4 +12,8 @@ export class StreamRequestService extends CustomHttpService {
   constructor(protected override httpClient: HttpClient) {
     super(httpClient, 'StreamRequest');
   }
+
+  getScore(streamRequestId: string) {
+    return this.httpClient.get<any>(this.apiUrl + `${streamRequestId}/score`);
+  }
 }

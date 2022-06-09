@@ -6,13 +6,19 @@
     <div>{{streamRequest.description}}</div>
   </div>
   <div>
-    <div *ngIf="adminMode">
-      <ng-container *ngIf="streamRequest.validatedAt; else notValidated">
-        Validé le : {{ streamRequest.validatedAt | date:'medium' }}
-      </ng-container>
-      <ng-template #notValidated>
-        <button class="btn btn-primary" (click)="validate()">Valider</button>
-      </ng-template>
-    </div>
+    <ng-container *ngIf="adminMode; else normalMode">
+      <div>
+        <ng-container *ngIf="streamRequest.validatedAt; else notValidated">
+          Validé le : {{ streamRequest.validatedAt | date:'medium' }}
+        </ng-container>
+        <ng-template #notValidated>
+          <button class="btn btn-primary" (click)="validate()">Valider</button>
+        </ng-template>
+      </div>
+    </ng-container>
+    <ng-template #normalMode>
+      <app-vote-system [streamRequestId]="streamRequest.id"></app-vote-system>
+    </ng-template>
+
   </div>
 </div>
