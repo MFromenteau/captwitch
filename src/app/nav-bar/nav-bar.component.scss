@@ -12,3 +12,14 @@
   }
 }
 
+.dialog-footer {
+  @apply border-t-2 flex justify-end mt-4;
+}
+
+.modal-close-btn {
+  @apply mt-4;
+}
+
+dialog {
+  @apply rounded-xl;
+}

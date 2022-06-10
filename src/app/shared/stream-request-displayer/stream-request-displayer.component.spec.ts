@@ -1,15 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CapcodTestBed } from 'src/tests/base-testbed';
 
 import { StreamRequestDisplayerComponent } from './stream-request-displayer.component';
 
-describe('StreamRequestDisplayerComponent', () => {
+fdescribe('StreamRequestDisplayerComponent', () => {
   let component: StreamRequestDisplayerComponent;
   let fixture: ComponentFixture<StreamRequestDisplayerComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ StreamRequestDisplayerComponent ]
-    })
+    const testbed = CapcodTestBed;
+    testbed.declarations.push(StreamRequestDisplayerComponent);
+    await TestBed.configureTestingModule(testbed)
     .compileComponents();
   });
 

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 import { LoginModel } from 'src/app/core/classes/login-model';
 import { AccountService } from 'src/app/core/services/account/account.service';
 
@@ -9,6 +10,7 @@ import { AccountService } from 'src/app/core/services/account/account.service';
 })
 export class LoginFormComponent implements OnInit {
   @Input() isLoginForm = true;
+  @Output() connected: Subject<any> = new Subject<any>();
   loginModel: LoginModel;
   constructor(public service: AccountService) {
     this.loginModel = <LoginModel>{};
@@ -23,7 +25,12 @@ export class LoginFormComponent implements OnInit {
     }
 
     if (this.isLoginForm) {
-      this.service.login(this.loginModel);
+      this.service.login(this.loginModel).subscribe({
+        next: (res: boolean) => {
+          this.connected.next(res);
+        }
+      });
+
     } else {
       this.service.signIn(this.loginModel).subscribe({
         next: (res) => {

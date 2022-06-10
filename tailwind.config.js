@@ -6,7 +6,12 @@ module.exports = {
   },
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      screens : {
+        'xs': '100px',
+        '3xl': '1900px'
+      }
+    },
   },
   plugins: [
   ],

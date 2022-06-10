@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LoginModel } from '../../classes/login-model';
 import { BaseCustomHttpService } from '../base-custom-http/base-custom-http.service';
 
@@ -15,17 +16,21 @@ export class AccountService extends BaseCustomHttpService {
     super(httpClient, 'account');
   }
 
-  public login(loginModel: LoginModel) {
-    this.httpClient.post<any>(`${this.apiUrl}login`, loginModel).subscribe({
-      next: (res) => {
-        const token = res.token;
-        localStorage.setItem(this.tokenKey, token);
-        this.isLoggedIn = true;
-      },
-      error: (err) => {
-        this.isLoggedIn = false;
-      }
-    });
+  public login(loginModel: LoginModel): Observable<boolean> {
+    return new Observable((obs) => {
+      this.httpClient.post<any>(`${this.apiUrl}login`, loginModel).subscribe({
+        next: (res) => {
+          const token = res.token;
+          localStorage.setItem(this.tokenKey, token);
+          this.isLoggedIn = true;
+          obs.next(this.isLoggedIn);
+        },
+        error: (err) => {
+          this.isLoggedIn = false;
+          obs.error(this.isLoggedIn);
+        }
+      });
+    })
   }
 
   public verifyLogin() {

@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserGuard implements CanActivate {
+  private isConnected = false;
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):
@@ -16,6 +18,7 @@ export class UserGuard implements CanActivate {
 
   public isUserConnected(): boolean {
     const token = localStorage.getItem('token');
-    return token != null;
+    this.isConnected = token != null;
+    return this.isConnected;
   }
 }

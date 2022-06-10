@@ -52,7 +52,7 @@ input, textarea {
 }
 
 .content-container {
-  @apply xl:px-40 2xl:px-72 md:px-12 lg:px-20 ;
+  @apply 3xl:px-[44rem] 2xl:px-72 xl:px-40 lg:px-20 md:px-12 sm:px-8 xs:px-4;
 }
 
 .stream-title {

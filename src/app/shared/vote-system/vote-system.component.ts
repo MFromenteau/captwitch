@@ -13,8 +13,8 @@ export class VoteSystemComponent implements OnInit {
   @Input() streamRequestId: string;
   scoreVote: ScoreVote;
   voteStatus = VoteStatus;
-  constructor(private streamRequestService: StreamRequestService,
-    private voteService: VoteService) { }
+  constructor(public streamRequestService: StreamRequestService,
+    public voteService: VoteService) { }
 
   ngOnInit(): void {
     this.load();

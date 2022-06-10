@@ -10,8 +10,19 @@
     <a *ngIf="userGuard.isUserConnected()" class="nav-link" [routerLink]="'/management'">Gestion</a>
   </div>
   <div class="action-btns">
-    <button class="btn-primary-outline" *ngIf="!userGuard.isUserConnected()">
-      Connexion
+    <button class="btn-primary-outline" (click)="sign(accountService.isLoggedIn)">
+      {{ accountService.isLoggedIn ? 'Déconnexion' : 'Connexion'}}
     </button>
   </div>
 </div>
+
+
+<dialog #loginDialog>
+  <app-login-form (connected)="closeModal()"></app-login-form>
+  <app-login-form [isLoginForm]="false"></app-login-form>
+  <div class="dialog-footer">
+    <button class="btn-primary-outline modal-close-btn" (click)="closeModal()">
+      Fermer
+    </button>
+  </div>
+</dialog>

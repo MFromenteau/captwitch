@@ -1,4 +1,7 @@
-<div class="stream-req-container">
+<div *ngIf="streamRequest" class="stream-req-container">
+  <div *ngIf="!adminMode">
+    <app-vote-system [streamRequestId]="streamRequest.id"></app-vote-system>
+  </div>
   <div>
     <div class="stream-title">
       {{streamRequest.name}}
@@ -6,7 +9,7 @@
     <div>{{streamRequest.description}}</div>
   </div>
   <div>
-    <ng-container *ngIf="adminMode; else normalMode">
+    <ng-container *ngIf="adminMode">
       <div>
         <ng-container *ngIf="streamRequest.validatedAt; else notValidated">
           Validé le : {{ streamRequest.validatedAt | date:'medium' }}
@@ -16,9 +19,5 @@
         </ng-template>
       </div>
     </ng-container>
-    <ng-template #normalMode>
-      <app-vote-system [streamRequestId]="streamRequest.id"></app-vote-system>
-    </ng-template>
-
   </div>
 </div>
